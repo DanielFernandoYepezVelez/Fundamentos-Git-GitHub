@@ -1,0 +1,135 @@
+Listar Variables Globales =>
+git config --global -e
+git config --global --list
+git config --global -l
+
+Salir De Vim =>
+:q(enter)
+
+Salir De Vim Entrando Por Medio Del Commit =>
+esc:wq(enter)
+
+Re-Construir Todo El Proyecto Al Ultimo Commit =>
+git checkout -- .
+
+Agrega Todos Los .txt De TODO El Proyecto =>
+git add "*.txt"
+
+Agrega Todos Los Archivos .txt En El Directorio Actual =>
+git add *.txt
+
+Agregar Todos Los Archivos =>
+git add --all
+
+Agrega Los Archivos Que Listemos =>
+git add <lista de archivos>
+
+Agrega Todos Los PDFS Dentro La Carpeta Uploads =>
+git add uploads/*.pdf
+
+Agrega Todos Los Archivos Dentro De La Carpeta Uploads =>
+git add uploads/
+
+Retirar Un Archivos Del Staged =>
+git reset HEAD(Ultimo Commit) <Nombre Archivo>
+
+Retirar Los Cambios De Un Archivo =>
+git checkout -- <Nombre Archivo>
+
+Alias Para Extensos Comandos =>
+git config --global alias.lg "log --oneline --decorate --all --graph"
+Nuevo Comando => git lg
+git config --global alias.s "status -s -b"
+Nuevo Comando => git s
+--------------------------------------------------
+
+Mostrar Todas Las Modificaciones Entre El Ultimo Commit Y El Estado Actual
+Del Archivo =>
+git diff
+
+Mostrar Todas Las Modificaciones Entre El Ultimo Commit Y El Estado Actual
+Del Archivo Que Se Encuentre En El Staged =>
+git diff --staged
+
+Actualizar O Corregir Los Nombres De Los Commits =>
+git commit --amend -m "Nuevo Nombre Commit"
+
+Incluir Cambios Realizados En Los Archivos A Un Commit Ya Existente Para 
+No Crear Un Nuevo Commit, Pero Se Debe Seleccionar El ID Del Commit Anterior
+Al HEAD(Ultimo Commit) =>
+git reset --soft <Id Del Commit>
+Ahora Tengo La Oportunidad De Hacer Mas Cambios Y Se Incluyen Automaticamente
+Para Subir Con Un Simple Commit
+
+Quitar Del Staged Y De Los Logs Los Commits Que Esten Despues Del ID Ingresado
+Pero No Se Eliminan Del Proyecto Ni Se Modifica El Archivo =>
+git reset --mixed <ID Del Commit>
+
+DESTRUIR Por Completo Los Cambios Del Staged Y De Los Logs, Los Commits
+Que Esten Despues Del ID Ingresado, Pero No Se Eliminan Del Proyecto SI 
+vienen Antes De Un --mixed, Pero SiNo Es Asì, Se Eliminan Los Archivos
+Del Proyecto Con Sus Cambios En Dicho Archivo =>
+git reset --hard <ID Del Commit>
+
+Muestra Todo El Movimiento Realizados En Los Commits A travès Del Tiempo =>
+git reflog
+
+Tambien Me Ayuda A CONSTRUIR Todos Los Commits Hasta Donde Le Indique El 
+ID =>
+git reset --hard <ID Del Commit>
+
+Renombrar Archivos Con Git(Es Importante Para Que GIT Lleve Un Seguimiento 
+De Dicho Archivo) =>
+git mv destruir.txt salvar.txt
+
+Eliminar Archivos Con Git(Es Importante Para Que GIT Lleve Un Seguimiento 
+De Dicho Archivo) =>
+git rm salvar.txt
+
+Sirve Para Actualizar Todo Los Archivos Del Proyecto Y Los Monta Al Staged
+Para Que Git Les Haga Seguimiento, Especialmente Si No Lo Tenian Con 
+Anterioridad =>
+git add -u
+
+RAMAS =>
+Ver Todas Las Ramas =>
+git branch 
+
+Movernos A Una Rama =>
+git checkout <NombreRama>
+
+Crear Y Movernos A Una Rama Al Mismo Tiempo =>
+git checkout -b <NombreRama>
+
+Ver La Diferencia De Una Rama En Particular Con La Rama Master =>
+(fast-foward)
+git diff <ramaUno> <ramaMaster>
+
+Eliminar una rama =>
+git branch -d rama-villanos
+
+MERGE (SOLUCION DE CONFLICTOS) => 
+HEAD => Lo que tenemos en la rama donde estamos parados
+y decidir de forma manual que es lo que queremos incorporar
+que se ven debajo, que serian los cambios entrantes de los 
+otros compañeros, el staged muestra lo siguiente en el archivo
+cons el conflicto solucionado UU.
+
+TAGS -> Etiquetas =>
+Son Una Referencia A Un Commit Especifico.
+
+Crear Un Tag =>
+git tag <NombreTag>
+git tag -a v1.0.0 -m "Version Uno"
+
+Ver Todos Los Tags =>
+git tag
+
+Tag Para Un Commit En Especifico =>
+git tag -a v0.1.0 345d7de -m "Version Alfa" 
+
+Eliminar Un Tag =>
+git tag -d <NombreTag>
+
+Mostrar Los Mensajes Y Detalles De Los Tags =>
+git show <NombreTag>

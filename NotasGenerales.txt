@@ -144,16 +144,56 @@ Incompletas De Forma Temporal.
 
 Crear Un Stash =>
 git stash
+git stash save
+
+Mensajes Para Los stash =>
+git stash save "AquiVaMensaje"
 
 Listar Todos Los stash =>
 git stash list
+git stash list stash@{posicion}
 
-Sacar Los Cambios Del Stash Y Volver Otra Vez A 
-La Funcionalidad Que Se Esta Trabajando Y Elimina
-El Stash Por Completo Si No Se Presenta Conflictos =>
+Restaurar Los Cambios Guardados En El Stage
+Toma La Ultima Entrada Del stash Y Lo Restaura =>
+git stash apply
+
+Entrada O Posición Especifica =>
+git stash apply stash@{0}
+
+Restaurar Los Cambios Guardados En El Stage,
+pero Ademas Lo Elimina Directamente Del stash =>
 git stash pop
+git stash pop stash@{posicion}
 
 Cuando Se Presenta Conflictos Se Soluciona Como Un
 merge Normal Y Para Eliminar El stash De Los Logs 
-Se Hace Lo siguiente =>
+Se Hace Lo siguiente:
+Elimina La Primera Posición Del stash =>
 git stash drop
+
+Elimina Posición Especifica =>
+git stash drop stash@{posicion}
+
+Guarda Todo Menos Los Archivos Que
+Esten En El Stage =>
+git stash save --keep-index
+
+Incluye Todos Los Archivos Incluso A Los
+Que Git No Les Da Seguimiento =>
+git stash save --include-untracked
+
+Hace Que Aparezca Información Superficial 
+De Cada Una De Las Entradas Del Stash =>
+git stash list --stat
+
+Hace Que Aparezca Información Detallada 
+De La Ultima Entrada En El Stash =>
+git show stash
+
+Posición Especifica Del stash =>
+git show stash@{posicion}
+
+Borrar Todas Las Entradas En El stash =>
+git stash clear
+
+REBASE =>

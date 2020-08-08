@@ -138,17 +138,22 @@ git tag -d <NombreTag>
 Mostrar Los Mensajes Y Detalles De Los Tags =>
 git show <NombreTag>
 
-<<<<<<< Updated upstream
+STASH =>
+Para Aplicar o Guardar Modificaciones Funcionales
+Incompletas De Forma Temporal.
+
+Crear Un Stash =>
+git stash
+
 Listar Todos Los stash =>
 git stash list
-=======
-STASH =>
-Para Aplicar o Guardar Funcionales Incompletas De Forma
-Temporal.
 
+Sacar Los Cambios Del Stash Y Volver Otra Vez A 
+La Funcionalidad Que Se Esta Trabajando Y Elimina
+El Stash Por Completo Si No Se Presenta Conflictos =>
+git stash pop
 
-
-
-
-
->>>>>>> Stashed changes
+Cuando Se Presenta Conflictos Se Soluciona Como Un
+merge Normal Y Para Eliminar El stash De Los Logs 
+Se Hace Lo siguiente =>
+git stash drop

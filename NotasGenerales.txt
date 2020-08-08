@@ -20,6 +20,7 @@ git add *.txt
 
 Agregar Todos Los Archivos =>
 git add --all
+git add -A
 
 Agrega Los Archivos Que Listemos =>
 git add <lista de archivos>
@@ -108,6 +109,9 @@ git diff <ramaUno> <ramaMaster>
 Eliminar una rama =>
 git branch -d rama-villanos
 
+MERGE (AUTOMATICOS SIN CONFLICTOS) =>
+git merge <NombreRama>
+
 MERGE (SOLUCION DE CONFLICTOS) => 
 HEAD => Lo que tenemos en la rama donde estamos parados
 y decidir de forma manual que es lo que queremos incorporar
@@ -134,5 +138,17 @@ git tag -d <NombreTag>
 Mostrar Los Mensajes Y Detalles De Los Tags =>
 git show <NombreTag>
 
+<<<<<<< Updated upstream
 Listar Todos Los stash =>
 git stash list
+=======
+STASH =>
+Para Aplicar o Guardar Funcionales Incompletas De Forma
+Temporal.
+
+
+
+
+
+
+>>>>>>> Stashed changes

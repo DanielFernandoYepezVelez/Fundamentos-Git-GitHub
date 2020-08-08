@@ -133,3 +133,6 @@ git tag -d <NombreTag>
 
 Mostrar Los Mensajes Y Detalles De Los Tags =>
 git show <NombreTag>
+
+Listar Todos Los Stash =>
+git stash list

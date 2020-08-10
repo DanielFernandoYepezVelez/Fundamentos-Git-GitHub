@@ -118,6 +118,7 @@ y decidir de forma manual que es lo que queremos incorporar
 que se ven debajo, que serian los cambios entrantes de los 
 otros compañeros, el staged muestra lo siguiente en el archivo
 con el conflicto solucionado UU.
+------------------------------------------------------
 
 TAGS -> Etiquetas =>
 Son Una Referencia A Un Commit Especifico.

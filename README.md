@@ -1,3 +1,3 @@
-# Fundamentos-Git-GitHub
+# Fundamentos Y Bases De Git/GitHub
 
 Este Proyecto Contiene Las Bases De Git Y GitHub, A través De Notas Y Ejemplos Con Diferentes Archivos

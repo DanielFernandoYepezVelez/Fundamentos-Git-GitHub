@@ -3,16 +3,16 @@ git config --global -e
 git config --global --list
 git config --global -l
 
-Salir De Vim =>
-:q(enter)
-
 Salir De Vim Entrando Por Medio Del Commit =>
 esc:wq(enter)
 
 Re-Construir Todo El Proyecto Al Ultimo Commit =>
 git checkout -- .
 
-Agrega Todos Los .txt De TODO El Proyecto =>
+Re-Construir Un Archivo DEl Proyecto Al Ultimo Commit =>
+git checkout -- <NombreArchivo>
+
+Agrega Todos Los Archivos .txt De TODO El Proyecto =>
 git add "*.txt"
 
 Agrega Todos Los Archivos .txt En El Directorio Actual =>
@@ -117,7 +117,7 @@ HEAD => Lo que tenemos en la rama donde estamos parados
 y decidir de forma manual que es lo que queremos incorporar
 que se ven debajo, que serian los cambios entrantes de los 
 otros compañeros, el staged muestra lo siguiente en el archivo
-cons el conflicto solucionado UU.
+con el conflicto solucionado UU.
 
 TAGS -> Etiquetas =>
 Son Una Referencia A Un Commit Especifico.
@@ -137,6 +137,7 @@ git tag -d <NombreTag>
 
 Mostrar Los Mensajes Y Detalles De Los Tags =>
 git show <NombreTag>
+-----------------------------------
 
 STASH =>
 Para Aplicar o Guardar Modificaciones Funcionales
@@ -153,14 +154,14 @@ Listar Todos Los stash =>
 git stash list
 git stash list stash@{posicion}
 
-Restaurar Los Cambios Guardados En El Stage
+Restaurar Los Cambios Guardados En El stash
 Toma La Ultima Entrada Del stash Y Lo Restaura =>
 git stash apply
 
 Entrada O Posición Especifica =>
 git stash apply stash@{0}
 
-Restaurar Los Cambios Guardados En El Stage,
+Restaurar Los Cambios Guardados En El stash,
 pero Ademas Lo Elimina Directamente Del stash =>
 git stash pop
 git stash pop stash@{posicion}
@@ -195,5 +196,71 @@ git show stash@{posicion}
 
 Borrar Todas Las Entradas En El stash =>
 git stash clear
+-----------------------------------------------------
 
 REBASE =>
+Se Utiliza para actualizar los commits de una rama
+diferente a la master al mismo nivel y despues de 
+tenerla al mismo nivel pone los Commits
+que tenga esa rama diferente a la master, por encima
+o en la cabeza. Luego hacemos un merge Hacia la rama
+master para actualizarla al mismo nivel.
+git rebase master
+
+SQUASH(Rebase Interactivo) =>
+Me sirve para unir o fusionar commits diferentes que
+realmente se pueden hacer en uno solo.
+
+git rebase -i HEAD~4
+
+Muestra los commits de forma ASCendente,
+del commit más lejos al HEAD al más cercano.
+
+Funciona solo dos commits, donde se ponga el squash
+y su commit superior, si pones otro squash adujunta 
+uno mas, hace lo mismo y asi sucesivamente.
+
+REWORD =>
+Al seleccionar esta opcion solo me edita el mensaje del
+commit al cual le ponga reword, no se edita en ese punto
+se debe pasar a la otra pantalla y alli se actualiza el 
+mensaje, especialmente cuando son nombres de commits muy
+extensos.
+
+EDIT(SEPARAR UN COMMIT EN DOS O MAS COMMITS POR SEPARADO) =>
+Nos ayuda a separar los commits unidos en dos o mas.
+git rebase -i HEAD~2
+
+- Escribo la opcion edit.
+- Luego hago un mixed, para sacar los archivos de los logs
+  y del staged.
+- Aplico un commit para cada uno.
+- git reabse --continue(para finalizar el rebase).
+-------------------------------------------------------------
+
+GitHub =>
+La direccion donde esta mi repositorio o proyecto remoto
+git remote -v
+
+tags =>
+Los tags no suben por defecto a GitHub, pero hay un comando para
+hacerlo.
+git push --tags
+
+push =>
+Los cambios del repositorio local son enviados al repositorio remoto.
+git push
+
+"REALIZAR UN PULL O UN FETCH ES UNA EXCELENTE PRACTICA, ANTES DE HACER
+UN PUSH"
+
+pull =>
+Trae los cambios del repositorio Remoto y ademas trata de hacer un
+merge Automaticamente con nuestro repositorio local.
+git pull
+
+fetch =>
+Trae los cambios del repositorio Remoto y PERO NO trata de hacer un
+merge Automaticamente con nuestro repositorio local, Solo muestra
+los cambios realizados y nos recomienda hacer un push o pull.
+git fetch

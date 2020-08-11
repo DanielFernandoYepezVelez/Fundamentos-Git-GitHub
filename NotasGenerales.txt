@@ -237,6 +237,10 @@ git rebase -i HEAD~2
   y del staged.
 - Aplico un commit para cada uno.
 - git reabse --continue(para finalizar el rebase).
+
+Para todos los rebase que se desean cancelar, se debe
+aplicar la finalizacion del mismo. (Hay Mas Opciones)
+- git reabse --abort(para abotar el rebase).
 -------------------------------------------------------------
 
 GitHub =>

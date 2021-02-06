@@ -1,100 +1,135 @@
+Documentación GIT =>
+https://git-scm.com/docs
+
+Definir Una Variable Global =>
+Definir Un Usuario Por Maquina =>
+git config --global user.name DanielFernandoYepezVelez
+git config --global user.email danipez.02@gmail.com
+
 Listar Variables Globales =>
 git config --global -e
 git config --global --list
 git config --global -l
-
-Salir De Vim Entrando Por Medio Del Commit =>
-esc:wq(enter)
-
-Re-Construir Todo El Proyecto Al Ultimo Commit =>
-git checkout -- .
-
-Re-Construir Un Archivo DEl Proyecto Al Ultimo Commit =>
-git checkout -- <NombreArchivo>
-
-Agrega Todos Los Archivos .txt De TODO El Proyecto =>
-git add "*.txt"
-
-Agrega Todos Los Archivos .txt En El Directorio Actual =>
-git add *.txt
-
-Agregar Todos Los Archivos =>
-git add --all
-git add -A
-
-Agrega Los Archivos Que Listemos =>
-git add <lista de archivos>
-
-Agrega Todos Los PDFS Dentro La Carpeta Uploads =>
-git add uploads/*.pdf
-
-Agrega Todos Los Archivos Dentro De La Carpeta Uploads =>
-git add uploads/
-
-Retirar Un Archivos Del Staged =>
-git reset HEAD(Ultimo Commit) <Nombre Archivo>
-
-Retirar Los Cambios De Un Archivo =>
-git checkout -- <Nombre Archivo>
+-----------
 
 Alias Para Extensos Comandos =>
 git config --global alias.lg "log --oneline --decorate --all --graph"
 Nuevo Comando => git lg
+
 git config --global alias.s "status -s -b"
 Nuevo Comando => git s
---------------------------------------------------
+-----------
 
-Mostrar Todas Las Modificaciones Entre El Ultimo Commit Y El Estado Actual
+Salir De Vim Entrando Por Medio Del Commit =>
+esc:wq(enter)
+-----------
+
+Re-Construir Todo El Proyecto Al Ultimo Commit Desapareciendo Los
+Cambios Realizados En Los Archivos Sin Guardarlos En El Stage =>
+git checkout .
+
+Re-Construir Un Archivo Del Proyecto Al Ultimo Commit =>
+git checkout <NombreArchivo>
+
+Retirar Los Cambios De Un Archivo =>
+git checkout -- <Nombre Archivo>
+-----------
+
+Agrega Todos Los Archivos .txt Existentes En TODO El Proyecto =>
+git add "*.txt"
+
+Agrega Todos Los Archivos .txt Existentes En El Directorio Actual =>
+git add *.txt
+
+Agregar Todos Los Archivos Al Staged =>
+git add --all
+git add -A
+git add .
+
+Agrega Los Archivos Que Listemos =>
+git add <lista de archivos>
+
+Agrega Todos Los PDFS O CSS O JS Dentro La Carpeta Uploads =>
+git add uploads/*.pdf
+git add uploads/*.css
+git add uploads/*.js
+
+Agrega Todos Los Archivos Dentro De La Carpeta Uploads =>
+git add uploads/
+-----------
+
+Retirar Un Archivo O Conjunto De Archivos Del Staged =>
+git reset <NombreCarpeta/NombreArchivo> | <NombreArchivo>
+
+Retirar Archivos Del Staged =>
+git reset HEAD(Ultimo Commit) <Nombre Archivo>
+-----------
+
+Mostrar Todas Las Diferencias O Modificaciones Entre El Ultimo Commit Y El Estado Actual
 Del Archivo =>
 git diff
 
-Mostrar Todas Las Modificaciones Entre El Ultimo Commit Y El Estado Actual
+Mostrar Todas Las Diferencias O Modificaciones Entre El Ultimo Commit Y El Estado Actual
 Del Archivo Que Se Encuentre En El Staged =>
 git diff --staged
+-----------
 
 Actualizar O Corregir Los Nombres De Los Commits =>
 git commit --amend -m "Nuevo Nombre Commit"
+-----------
 
-Incluir Cambios Realizados En Los Archivos A Un Commit Ya Existente Para 
+Incluir Los Cambios Realizados En Los Archivos A Un Commit Ya Existente Para 
 No Crear Un Nuevo Commit, Pero Se Debe Seleccionar El ID Del Commit Anterior
 Al HEAD(Ultimo Commit) =>
 git reset --soft <Id Del Commit>
+Es Decir, Lo Que Hace Es Regresar Un Commit Existente Al Staging Area Para Poder
+Reescribirlo Y Hacer Los Nuevos Cambios Que Queramos.
 Ahora Tengo La Oportunidad De Hacer Mas Cambios Y Se Incluyen Automaticamente
-Para Subir Con Un Simple Commit
+Para Subir Con Un Simple Commit, Pero El Commit Va A Ser El Mismo Que Se
+Mando Al Staging Area Antes, Solo Que Con Los Nuevos Cambios.
 
 Quitar Del Staged Y De Los Logs Los Commits Que Esten Despues Del ID Ingresado
-Pero No Se Eliminan Del Proyecto Ni Se Modifica El Archivo =>
+Pero No Se Eliminan Del Proyecto, Ni Se Modifica El Archivo =>
 git reset --mixed <ID Del Commit>
 
 DESTRUIR Por Completo Los Cambios Del Staged Y De Los Logs, Los Commits
 Que Esten Despues Del ID Ingresado, Pero No Se Eliminan Del Proyecto SI 
-vienen Antes De Un --mixed, Pero SiNo Es Asì, Se Eliminan Los Archivos
+vienen Antes De Un --mixed, Pero Si No Es Asì, Se Eliminan Los Archivos
 Del Proyecto Con Sus Cambios En Dicho Archivo =>
 git reset --hard <ID Del Commit>
 
-Muestra Todo El Movimiento Realizados En Los Commits A travès Del Tiempo =>
+Muestra Todo El Movimiento Realizado En Los Commits A travès Del Tiempo
+Incluso Los reset hard =>
 git reflog
 
 Tambien Me Ayuda A CONSTRUIR Todos Los Commits Hasta Donde Le Indique El 
-ID =>
+ID, Despues De Aplicar Un git reflog Y Ver Todo El Historial Y Obtener 
+El ID Del Commit Que Necesitamos Para Que El Proyecto Vuelva A Ese Punto =>
 git reset --hard <ID Del Commit>
+-----------
 
 Renombrar Archivos Con Git(Es Importante Para Que GIT Lleve Un Seguimiento 
-De Dicho Archivo) =>
+De Que A Dicho Archivo Se Le Cambio El Nombre (Control O Historial De Git)) 
+Cambia El Nombre Y Lo Pasa Al Staged, Listo Para Comitiarlo =>
 git mv destruir.txt salvar.txt
 
 Eliminar Archivos Con Git(Es Importante Para Que GIT Lleve Un Seguimiento 
-De Dicho Archivo) =>
+De Que A Dicho Archivo Se Le Elimino (Control O Historial De Git)) =>
 git rm salvar.txt
 
 Sirve Para Actualizar Todo Los Archivos Del Proyecto Y Los Monta Al Staged
 Para Que Git Les Haga Seguimiento, Especialmente Si No Lo Tenian Con 
 Anterioridad =>
 git add -u
+-----------
 
 RAMAS =>
 Ver Todas Las Ramas =>
-git branch 
+git branch (Todas las ramas locales)
+git branch -a (Todas las ramas incluyendo las remotas y locales no elminadas)
+
+Crear Una Nueva Rama =>
+git branch <NombreRama>
 
 Movernos A Una Rama =>
 git checkout <NombreRama>
@@ -106,24 +141,63 @@ Ver La Diferencia De Una Rama En Particular Con La Rama Master =>
 (fast-foward)
 git diff <ramaUno> <ramaMaster>
 
-Eliminar una rama =>
-git branch -d rama-villanos
+Eliminar una rama local =>
+git branch -d rama-villanos (Funciona Si Tenemos La Nueva Funcionalidad
+Integrada En La Rama Master O Principal)
+git branch -D rama-villanos
 
-MERGE (AUTOMATICOS SIN CONFLICTOS) =>
+Eliminar una rama remota =>
+git push origin :rama-misiones
+
+Eliminar una rama local, que ya no exista de forma remota =>
+git remote prune origin
+
+MERGE (AUTOMATICOS SIN CONFLICTOS) Se Conoce Como Fast-Forward =>
 git merge <NombreRama>
 
 MERGE (SOLUCION DE CONFLICTOS) => 
 HEAD => Lo que tenemos en la rama donde estamos parados
 y decidir de forma manual que es lo que queremos incorporar
-que se ven debajo, que serian los cambios entrantes de los 
+que se ve debajo, que serian los cambios entrantes de los 
 otros compañeros, el staged muestra lo siguiente en el archivo
-con el conflicto solucionado UU.
+con el conflicto solucionado UU, antes de aplicar el respectivo
+commit.
+
+Debemos Eliminar Los Avisos Como Por Ejemplo 
+(<<<<<< HEAD
+================ 
+<<<<<<<<<< OTRA_RAMA) De Forma Manual Y Definir Cual Va
+A Ser La Estructura Final Para Ejecutar El
+git add .
+git commit.
+Y Hacer El Merge Exitosamente.
+------------------------------------------------------
+
+COMANDO cherry-pick =>
+Agregar commits de una rama a otra rama, generalmente 
+un commit de una rama de desarrollo a una rama de 
+producción y el commit se selecciona por su ID.
+
+Hacemos un commit y en producción encontramos un bug,
+vamos y lo corregimos en la rama de desarrollo. es decir,
+el bug ya no existe en la rama de desarrollo.
+También queremos corregirlo en la rama de producción,
+porque que aun existe dicho bug.
+Entonces debemos seleccionar aquel commit por medio de
+su ID que tenia la solución del bug en la rama de desarrollo
+y lo aplicamos en la rama de produccion con este comando:
+git cherry-pick <ID commit>
 ------------------------------------------------------
 
 TAGS -> Etiquetas =>
-Son Una Referencia A Un Commit Especifico.
+No Sirven Para Versionar Nuestro Proyecto De Una Forma Ideal
+Y Saber Que Fue Lo Que Hicimos O Construimos Hasta Ese Punto
+Del Commit Etiquetado.
+Son Una Referencia A Una Rama O Commit Especifico.
+Como Nombrar Un Commit Que Tenemos A Lo Largo De Nuestras Ramas.
 
 Crear Un Tag =>
+Se Etiqueta La Rama Donde Se Creo Dicho Tag(Etiqueta)
 git tag <NombreTag>
 git tag -a v1.0.0 -m "Version Uno"
 
@@ -131,17 +205,29 @@ Ver Todos Los Tags =>
 git tag
 
 Tag Para Un Commit En Especifico =>
+Se Etiqueta Solo El Commit Con El ID Escrito.
 git tag -a v0.1.0 345d7de -m "Version Alfa" 
+
+Versionamiento =>
+v1.0.0 => Versión Original.
+v1.0.1 => Cambio Pequeño.
+v1.1.0 => Cambio Moderado.
+v2.0.0 => Cambio Sustancial.
 
 Eliminar Un Tag =>
 git tag -d <NombreTag>
 
 Mostrar Los Mensajes Y Detalles De Los Tags =>
 git show <NombreTag>
+
+Subir Un Tag A GitHub =>
+Los tags No Suben Por Defecto A GitHub, Pero Hay Un Comando 
+Para Hacerlo.
+git push --tags
 -----------------------------------
 
 STASH =>
-Para Aplicar o Guardar Modificaciones Funcionales
+Para Guardar Modificaciones Funcionales
 Incompletas De Forma Temporal.
 
 Crear Un Stash =>
@@ -176,8 +262,8 @@ git stash drop
 Elimina Posición Especifica =>
 git stash drop stash@{posicion}
 
-Guarda Todo Menos Los Archivos Que
-Esten En El Stage =>
+Guarda Todos Los Archivos Menos Los 
+Archivos Que Esten En El Stage =>
 git stash save --keep-index
 
 Incluye Todos Los Archivos Incluso A Los
@@ -214,11 +300,11 @@ realmente se pueden hacer en uno solo.
 
 git rebase -i HEAD~4
 
-Muestra los commits de forma ASCendente,
+Muestra los commits de forma Ascendente,
 del commit más lejos al HEAD al más cercano.
 
 Funciona solo dos commits, donde se ponga el squash
-y su commit superior, si pones otro squash adujunta 
+y su commit superior, si pones otro squash adjunta 
 uno mas, hace lo mismo y asi sucesivamente.
 
 REWORD =>
@@ -244,20 +330,16 @@ aplicar la finalizacion del mismo. (Hay Mas Opciones)
 -------------------------------------------------------------
 
 GitHub =>
+Enlazar Mi Proyecto Local Con GitHub
+git remote add origin https://github.com/DanielFernandoYepezVelez/legion-del-mal.git
+git push -u origin master
+
 La direccion donde esta mi repositorio o proyecto remoto
 git remote -v
-
-tags =>
-Los tags no suben por defecto a GitHub, pero hay un comando para
-hacerlo.
-git push --tags
 
 push =>
 Los cambios del repositorio local son enviados al repositorio remoto.
 git push
-
-"REALIZAR UN PULL O UN FETCH ES UNA EXCELENTE PRACTICA, ANTES DE HACER
-UN PUSH"
 
 pull =>
 Trae los cambios del repositorio Remoto y ademas trata de hacer un
@@ -269,3 +351,149 @@ Trae los cambios del repositorio Remoto y PERO NO trata de hacer un
 merge Automaticamente con nuestro repositorio local, Solo muestra
 los cambios realizados y nos recomienda hacer un push o pull.
 git fetch
+
+"REALIZAR UN PULL O UN FETCH ES UNA EXCELENTE PRACTICA, ANTES DE HACER
+UN PUSH"
+
+Clonar =>
+Clonar Un Repositorio Remoto En Mi Maquina Local.
+git clone https://github.com/DanielFernandoYepezVelez/legion-del-mal.git
+-----------------------------------------------------------------------
+
+FORK(Clon del proyecto original)
+Es Clonar Un Repositorio De Otra Persona Y Volverlo Propio, Para
+Ejecutar Todas Las Acciones Que git Nos Permite Ejecutar Incluyendo
+La Ejecución De Un push Normal.
+
+Si posteriormente, Queremos Enviar Los Cambios Al Creador Original Del 
+Repositorio Debemos Crear Un New Pull Request.
+Se Muestran Los Cambios Afectados.
+Se Le Da En Create Pull Request.
+Te Dice Que No Vas A Tener Ningun Problema Con La Rama Original (CheckBox Verde).
+Se Envian Los Cambios Al Dueño Del Repositorio Orignal.
+Y Si El Los Acepta Nuestros Cambios Se Uniran Al Del Repositorio
+Original, Por Medio De Un Pull Request.
+Se Crean Hilos Comentarios Colaborativos Entre El Usuario Del Repositorio
+Original Y El Usuario Que Clono El Repositorio Original.
+
+"Recordar Que La Dinamica De Los Pull Request Tambien Funcionan Entre
+Las Distintas Ramas Existentes De Un Proyecto."
+----------
+
+SE DEBE EJECUTAR ESTE PROCESO CADA VEZ QUE SEA ACEPTADO UN PULL
+REQUEST EN EL UPSTREAM(Se utiliza para compañeros nuevos, que no
+confiamos mucho en ellos) =>
+
+Actualizando Nuestro Propio FORK(Clon del proyecto original)
+Para yo saber que cambios se han aplicado en el repositorio
+original, del cual yo aplique un FORK, se debe ejecutar el
+siguiente comando =>
+git remote add upstream https://github.com/Klerith/legion-del-mal.git
+
+Es estandar llamar upstream al repositorio donde obtenemos los cambios,
+pero nosotros no podemos hacer un push a ese repositorio.
+
+git remote -v =>
+origin  https://github.com/DanielFernandoYepezVelez/legion-del-mal.git (fetch)
+origin  https://github.com/DanielFernandoYepezVelez/legion-del-mal.git (push)
+upstream        https://github.com/Klerith/legion-del-mal.git (fetch)
+upstream        https://github.com/Klerith/legion-del-mal.git (push)
+
+En el repositorio upstream yo no puedo hacer un push, pero si puedo ejecutar
+un fetch.
+
+Podemos hacer un fetch y luego un merge =>
+git fetch upstream master
+git merge upstream master
+
+pero prefiero hacer un pull a la rama master del upstream, para que me ejecute,
+el merge de forma automatica =>
+git pull upstream master
+
+y por ultimo si quiero actualizar mi repositorio clonado(FORK) de GitHub 
+le mando los cambios =>
+git push -u origin master
+------------------------------------------------------
+
+PARA CUANDO ME INCORPORO EN UN NUEVO PROYECTO =>
+git fetch
+git branch -a
+git checkout rama-capitan
+------------------------------------------------------
+
+Issues =>
+Son mensajes que nos sirven para corregir errores en un equipo de trabajo.
+
+Agregar o Asociar un Issues a un commit en particular =>
+Se debe tener el numero del issues en GitHub.
+
+git commit -am "Agregamos a Nick Fury fixes #4"
+- fixes
+- closes
+- resolves
+
+Labels =>
+Me sirven bastante para administrar de una mejor manera los issues.
+------------------------------------------------------------------------
+
+MileStone =>
+Son grupos de issues, caracteristicas o una fecha dentro de un periodo
+de tiempo.
+
+Ejemplos de MileStone =>
+Beta Launch - Los Issues De Los Errores Que Necesitamos Arreglar Antes 
+De Lanzamiento.
+
+Octubre - Issues Que Nos Gustarian Que Funcionaran En Octubre Y Es Una 
+Excelente Forma De Mantener El Enfoque.
+
+Re-Diseño - Issues Relacionadas al diseño del proyecto, Es Una Excelente
+Forma Para Mantener Las Ideas Y Trabajos Enfocados En El Mismo Punto.
+------------------------------------------------------------------------
+
+Agregar Un Colaborador =>
+Settings.
+Manage Access.
+Invite A Collaborators.
+Ingresar Email O Nombre De Usuario De GitHub.
+-------------------------------------------------------------------
+
+WIKI =>
+Crear paginas que ayuden a entender el proyecto. Y se puede utilizar
+markdown para configurar el aspecto de cada pantalla.
+
+Ademas Puedo moverme de una pagina a otra pagina de wiki gracias a los
+links.
+-------------------------------------------------------------------
+
+PROJECTS =>
+Imaginemos una gran pizarra donde se puede se ponen los temas pendientes,
+que persona a trabajado en que y se pueden tener muchos proyectos.
+-------------------------------------------------------------------
+
+GIST =>
+Es como una especie de micro-repositorio que esta compuesto de uno ó dos
+archivos. Pero sirven para compartir cosas que se desean tener a la mano, como
+notas, snnipets, code, etc.
+
+Tenemos las gist publicas y privadas(Se pueden ver si se comparte el enlace).
+----------------------------------
+
+README.md
+Indicaciones Para Las Personas De Lo Que Hace El Proyecto.
+
+# Fundamentos Y Bases De Git/GitHub
+
+Este Proyecto Contiene Las Bases De Git Y GitHub, A través De Notas Y Ejemplos Con Diferentes Archivos
+
+### Link Comando Git:
+https://education.github.com/git-cheat-sheet-education.pdf
+
+### Link Tutorial Markdown:
+
+https://www.markdowntutorial.com/
+https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf
+
+#### List Emojis GitHub:
+
+https://www.webfx.com/tools/emoji-cheat-sheet/

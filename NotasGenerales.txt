@@ -1,5 +1,6 @@
 Documentación GIT =>
 https://git-scm.com/docs
+https://gitsheet.wtf/
 
 Definir Una Variable Global =>
 Definir Un Usuario Por Maquina =>
@@ -74,7 +75,7 @@ Del Archivo Que Se Encuentre En El Staged =>
 git diff --staged
 -----------
 
-Actualizar O Corregir Los Nombres De Los Commits =>
+Actualizar O Corregir Los Nombres De Los Commits (Selecciona El Ultimo Commit Por Defecto) =>
 git commit --amend -m "Nuevo Nombre Commit"
 -----------
 
@@ -116,6 +117,11 @@ git mv destruir.txt salvar.txt
 Eliminar Archivos Con Git(Es Importante Para Que GIT Lleve Un Seguimiento 
 De Que A Dicho Archivo Se Le Elimino (Control O Historial De Git)) =>
 git rm salvar.txt
+
+Para Eliminar El .env Despues De Comitiarlo Por Error Utilice El Comando 
+Anterior(git rm .env), Luego Hice El Commit Con Su Eliminación Y Nuevos 
+Cambios En Otros Archivos, Para Posteriormente, Crear El .env De Forma 
+Manual Y Aqui Si Funciono O Lo Tomo El .gitignore. 
 
 Sirve Para Actualizar Todo Los Archivos Del Proyecto Y Los Monta Al Staged
 Para Que Git Les Haga Seguimiento, Especialmente Si No Lo Tenian Con 
@@ -285,7 +291,7 @@ Borrar Todas Las Entradas En El stash =>
 git stash clear
 -----------------------------------------------------
 
-REBASE =>
+REBASE => (Para reorganizar los commits)
 Se Utiliza para actualizar los commits de una rama
 diferente a la master al mismo nivel y despues de 
 tenerla al mismo nivel pone los Commits
@@ -344,12 +350,16 @@ git push
 pull =>
 Trae los cambios del repositorio Remoto y ademas trata de hacer un
 merge Automaticamente con nuestro repositorio local.
+Me trae los cambios del remoto, si yo conozco el nombre de la rama,
+solo me trae cambios y datos.
 git pull
 
 fetch =>
 Trae los cambios del repositorio Remoto y PERO NO trata de hacer un
 merge Automaticamente con nuestro repositorio local, Solo muestra
 los cambios realizados y nos recomienda hacer un push o pull.
+Me trae el nombre de las ramas del remote, el trae estructura,
+pero no me trae datos, eso se hace con el pull.
 git fetch
 
 "REALIZAR UN PULL O UN FETCH ES UNA EXCELENTE PRACTICA, ANTES DE HACER

@@ -118,9 +118,6 @@ Eliminar Archivos Con Git(Es Importante Para Que GIT Lleve Un Seguimiento
 De Que A Dicho Archivo Se Le Elimino (Control O Historial De Git)) =>
 git rm salvar.txt
 
-Eliminar Carpetas Con Git =>
-git rm -r <NombreCarpeta>
-
 Para Eliminar El .env Despues De Comitiarlo Por Error Utilice El Comando 
 Anterior(git rm .env), Luego Hice El Commit Con Su Eliminación Y Nuevos 
 Cambios En Otros Archivos, Para Posteriormente, Crear El .env De Forma 

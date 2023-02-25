@@ -7,6 +7,9 @@ Definir Un Usuario Por Maquina =>
 git config --global user.name DanielFernandoYepezVelez
 git config --global user.email danipez.02@gmail.com
 
+Definir Nombres Largos De Archivos Y Que Sean Aceptados Por Git =>
+git config --global core.longpaths true
+
 Listar Variables Globales =>
 git config --global -e
 git config --global --list

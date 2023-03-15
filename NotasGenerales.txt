@@ -6,6 +6,7 @@ Definir Una Variable Global =>
 Definir Un Usuario Por Maquina =>
 git config --global user.name DanielFernandoYepezVelez
 git config --global user.email danipez.02@gmail.com
+git config --global user.password 11111111111111111
 
 Definir Nombres Largos De Archivos Y Que Sean Aceptados Por Git =>
 git config --global core.longpaths true
